@@ -30,7 +30,8 @@ async def get_ex_rates(ex_date, ticker_list=["EUR", "USD"]):
                     if curr["currency"] == ticker:
                         rates_dict["sale"] = curr["saleRateNB"]
                         rates_dict["purchase"] = curr["purchaseRateNB"]
-                        curr_dict[ticker] = rates_dict
+                        new = rates_dict.copy()
+                        curr_dict[ticker] = new
                         final_dict[ex_date] = curr_dict
             return final_dict
 
